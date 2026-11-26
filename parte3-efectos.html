@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 3: Bordes, Filtros e Interactividad - Tailwind</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans antialiased">
+    
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/85 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
+            <a href="index.html" class="flex items-center gap-2.5">
+                <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-400 to-indigo-500 flex items-center justify-center font-extrabold text-slate-950 text-sm shadow">TW</span>
+                <span class="font-bold text-white tracking-tight text-sm sm:text-base">Tailwind CSS</span>
+            </a>
+            <div class="flex flex-wrap items-center gap-1.5">
+                <a href="index.html" class="px-3.5 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition">Inicio</a><a href="parte1-tipografia.html" class="px-3.5 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition">1. Texto y Color</a><a href="parte2-animaciones.html" class="px-3.5 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition">2. Animaciones</a><a href="parte3-efectos.html" class="px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold bg-sky-500 text-slate-950 shadow-md shadow-sky-500/20">3. Bordes y Filtros</a><a href="parte4-layout.html" class="px-3.5 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition">4. Flex y Grid</a>
+            </div>
+        </div>
+    </nav>
+    
+
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
+        <header class="mb-10 border-b border-slate-800 pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+                <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border mb-3">
+                    Módulo 03
+                </span>
+                <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+                    Parte 3: Bordes, Filtros e Interactividad
+                </h1>
+                <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
+                    Control de bordes, desbordamiento, capas z-index, cursores y filtros visuales modernos.
+                </p>
+            </div>
+            <a href="index.html" class="self-start sm:self-auto px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200 transition">
+                ← Volver al menú
+            </a>
+        </header>
+
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #28
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        rounded-lg
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Radio de borde
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <div class="rounded-lg bg-emerald-600 px-3 py-1.5 text-sm">Esquinas redondeadas</div>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #29
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        border-4
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Ancho de borde
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <div class="border-4 border-emerald-400 px-3 py-1 rounded text-sm">Borde de 4px</div>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #30
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        border-dashed
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Estilo de borde
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <div class="border-2 border-dashed border-teal-300 px-3 py-1 rounded text-sm">Borde discontinuo</div>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #31
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        border-collapse
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Colapso de borde
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <table class="border-collapse border border-slate-500 text-xs"><tr><td class="border border-slate-500 px-2 py-1">Celda 1</td><td class="border border-slate-500 px-2 py-1">Celda 2</td></tr></table>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #32
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        border-separate
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Espaciado de borde
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <table class="border-separate border-spacing-1 border border-slate-500 text-xs"><tr><td class="border border-slate-500 px-2 py-1">A</td><td class="border border-slate-500 px-2 py-1">B</td></tr></table>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #33
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        outline-none
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Esquema
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <input type="text" value="Haz clic (sin outline)" class="outline-none bg-slate-800 border border-slate-600 focus:border-emerald-400 px-2.5 py-1 rounded text-xs w-44">
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #34
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        overflow-hidden
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Desbordamiento
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <div class="overflow-hidden w-44 h-8 bg-slate-800 px-2 py-1 rounded text-xs">Texto recortado que no sobresale del contenedor</div>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #35
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        overflow-x-hidden
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Desbordamiento horizontal
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <div class="overflow-x-hidden w-44 bg-slate-800 px-2 py-1 rounded text-xs whitespace-nowrap">Sin barra horizontal</div>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #36
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        overflow-y-hidden
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Desbordamiento vertical
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <div class="overflow-y-hidden h-7 bg-slate-800 px-2 py-1 rounded text-xs">Sin scroll vertical<br>Línea oculta</div>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #37
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        z-10
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Índice z
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <div class="relative flex items-center"><div class="z-10 bg-emerald-500 text-slate-950 font-bold px-2.5 py-1 rounded text-xs">z-10</div><div class="-ml-2 bg-slate-700 px-2.5 py-1 rounded text-xs">z-0</div></div>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #39
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        pointer-events-none
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Eventos del puntero
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <button class="pointer-events-none opacity-60 bg-slate-700 px-3 py-1 rounded text-xs">Botón sin clics</button>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #40
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        resize-none
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Cambiar tamaño
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <textarea rows="1" class="resize-none bg-slate-800 border border-slate-600 rounded px-2 py-1 text-xs w-44">No redimensionable</textarea>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #41
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        cursor-pointer
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Cursor
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <div class="cursor-pointer bg-teal-600 hover:bg-teal-500 px-3 py-1 rounded text-xs inline-block">Pasa el puntero aquí</div>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #42
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        select-none
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Selección del usuario
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <div class="select-none bg-slate-800 px-3 py-1 rounded text-xs">Intenta seleccionar este texto</div>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #43
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        filter
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Filtro
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <div class="filter grayscale bg-gradient-to-r from-pink-500 to-amber-500 px-3 py-1 rounded text-xs font-bold">Filtro escala de grises</div>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #44
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        backdrop-filter
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Filtro de fondo
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <div class="relative bg-gradient-to-r from-emerald-500 to-cyan-500 p-1.5 rounded"><div class="backdrop-blur-md bg-slate-950/60 px-2.5 py-1 rounded text-xs">Fondo desenfocado</div></div>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #45
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        mix-blend-screen
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Modo de mezcla
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <div class="bg-indigo-900 p-1.5 rounded"><span class="mix-blend-screen bg-emerald-500 px-2 py-0.5 rounded text-xs font-bold">Mezcla screen</span></div>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #46
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        clip-full
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Ruta de recorte
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <div class="[clip-path:polygon(0_0,100%_0,92%_100%,0_100%)] bg-emerald-600 px-3 py-1 text-xs">Recorte poligonal</div>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #47
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        will-change-transform
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Cambio futuro
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <div class="will-change-transform hover:scale-105 transition bg-slate-800 px-3 py-1 rounded text-xs">Optimizado GPU</div>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #48
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        isolation-isolate
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Aislamiento de capa
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <div class="isolate bg-slate-800 border border-emerald-500/40 px-3 py-1 rounded text-xs">Capa aislada</div>
+            </div>
+        </article>
+        
+        <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 flex flex-col justify-between shadow-lg transition duration-200">
+            <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                        Punto #50
+                    </span>
+                    <code class="text-xs font-mono bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-emerald-400">
+                        shape-outside
+                    </code>
+                </div>
+                <h2 class="text-base font-bold text-white mb-4">
+                    Forma exterior
+                </h2>
+            </div>
+            <div class="bg-slate-950/90 border border-slate-800/90 rounded-lg p-3.5 flex items-center justify-center min-h-[4.25rem]">
+                <div class="text-xs text-slate-300"><span class="float-left w-6 h-6 rounded-full bg-emerald-500 mr-2 [shape-outside:circle(50%)]"></span>Texto que rodea una forma circular.</div>
+            </div>
+        </article>
+        
+        </section>
+    </main>
+
+    <footer class="border-t border-slate-800/80 py-6 text-center text-xs text-slate-500">
+        Actividad inicial Tailwind • Parte 3: Bordes, Filtros e Interactividad
+    </footer>
+</body>
+</html>
